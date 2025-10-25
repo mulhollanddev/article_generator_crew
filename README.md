@@ -2,7 +2,18 @@
 Este projeto implementa um sistema multiagente utilizando o framework CrewAI para automatizar a criação de artigos para um website1. O sistema pesquisa informações contextuais na API da Wikipedia para obter contexto relevante 2e utiliza Large Language Models (LLMs) para redigir artigos estruturados e com no mínimo 300 palavras.
 A interface é fornecida através de um servidor FastAPI e uma aplicação cliente Streamlit.
 
-## ⚙️ Tecnologias UtilizadasComponenteTecnologiaFinalidadeOrquestraçãoCrewAI 4Framework para gerenciar a colaboração dos agentes5.AgentesPesquisador e EscritorO sistema contém dois ou mais agentes6.PesquisaCustom CrewAI Tool 77Tool customizada para consultar a API da Wikipedia88.LLMOpenRouter (ou Gemini/Groq)Modelo de linguagem grande para raciocínio e geração de conteúdo9.EstruturaPydanticValidação e formatação do output final da Crew10.API WebFastAPIServidor REST para execução do sistema11.FrontendStreamlitInterface de usuário (ChatBot).LinguagemPython 12Linguagem principal do projeto.
+## ⚙️ Tecnologias Utilizadas
+Componente Tecnologia Finalidade
+| **Componente** | **Tecnologia**              | **Finalidade**                                                   |
+|----------------|-----------------------------|------------------------------------------------------------------|
+| Orquestração   | CrewAI                      | Tool customizada para consultar a API da Wikipedia.              |
+| Agentes        | Pesquisador e Escritor      | O sistema contém dois ou mais agentes                            |
+| Pesquisa       | Custom CrewAI Tool          | Tool customizada para consultar a API da Wikipedia.              |
+| LLM            | OpenRouter (ou Gemini/Groq) | Modelo de linguagem grande para raciocínio e geração de conteúdo |
+| Estrutura      | Pydantic                    | Validação e formatação do output final da Crew                   |
+| API Web        | FastAPI                     | Servidor REST para execução do sistema                           |
+| Frontend       | Streamlit                   | Interface de usuário (ChatBot)                                   |
+| Linguagem      | Python                      | Linguagem principal do projeto.                                  |
 
 ## 🚀 Estrutura do ProjetoO projeto segue a estrutura de pacotes recomendada (app/ para serviços de API, src/ para a lógica principal do sistema de agentes):SMUGAU/
 ├── app/
