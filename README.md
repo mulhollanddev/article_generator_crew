@@ -1,4 +1,4 @@
-# 📄 Sistema Multiagentes para Geração de Artigos (SMUGAU)
+# 📄 Sistema Multiagentes para Geração de Artigos
 Este projeto implementa um sistema multiagente utilizando o framework CrewAI para automatizar a criação de artigos para um website1. O sistema pesquisa informações contextuais na API da Wikipedia para obter contexto relevante 2e utiliza Large Language Models (LLMs) para redigir artigos estruturados e com no mínimo 300 palavras.
 A interface é fornecida através de um servidor FastAPI e uma aplicação cliente Streamlit.
 
@@ -14,7 +14,8 @@ A interface é fornecida através de um servidor FastAPI e uma aplicação clien
 | Frontend       | Streamlit                   | Interface de usuário (ChatBot)                                   |
 | Linguagem      | Python                      | Linguagem principal do projeto.                                  |
 
-## 🚀 Estrutura do ProjetoO projeto segue a estrutura de pacotes recomendada (app/ para serviços de API, src/ para a lógica principal do sistema de agentes):SMUGAU/
+## 🚀 Estrutura do Projeto
+O projeto segue a estrutura de pacotes recomendada (app/ para serviços de API, src/ para a lógica principal do sistema de agentes): article_generator_crew/
 ```text
 article_generator_crew/
 ├── app/
@@ -74,14 +75,15 @@ $ OPENAI_API_KEY="sk-fakekeyforcrewai"
 ### 4. Execução do Sistema
 O sistema é dividido em duas partes que devem ser executadas em terminais separados: o Servidor API e a Interface Gráfica.
 
-#### A. Iniciar o Servidor FastAPI (Backend)Abra o primeiro terminal na raiz do projeto (SMUGAU/) e inicie o servidor:
+#### A. Iniciar o Servidor FastAPI (Backend)
+Abra o primeiro terminal na raiz do projeto (article_generator_crew/) e inicie o servidor:
 <pre><code class="language-bash">
 $ uvicorn app.main:app --reload
 </code></pre>
 O servidor estará ativo em http://127.0.0.1:8000.
 
 #### B. Iniciar a Interface Streamlit (Frontend)
-Abra o segundo terminal na raiz do projeto (SMUGAU/) e inicie a interface:
+Abra o segundo terminal na raiz do projeto (article_generator_crew/) e inicie a interface:
 
 <pre><code class="language-bash">
 $ streamlit run app.py
