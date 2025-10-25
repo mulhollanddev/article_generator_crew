@@ -1,0 +1,15 @@
+# Arquivos de ambiente e chaves
+.env
+
+# Diretórios de ambiente virtual
+.venv/
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Cache do Streamlit
+.streamlit/
+
+# Arquivos de log e depuração
+*.log

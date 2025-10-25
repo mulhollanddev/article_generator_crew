@@ -1,0 +1,47 @@
+# =======================================================
+# TAREFA 1 — PESQUISAR CONTEXTO
+# =======================================================
+pesquisar_contexto:
+  description: >
+    Pesquise na Wikipedia fatos e informações históricas e contextuais
+    sobre o assunto definido. O foco é coletar informações cruas e relevantes
+    para o artigo.
+    Assunto: {assunto}
+  
+  expected_output: >
+    Um resumo factual, bem fundamentado e conciso (em formato de lista de tópicos),
+    com as principais informações e dados encontrados sobre o {assunto}.
+    Este output será usado como contexto para o Agente Escritor.
+
+  agent: pesquisador
+
+
+# =======================================================
+# TAREFA 2 — REDIGIR ARTIGO FINAL
+# =======================================================
+redigir_artigo_final:
+  description: >
+    Com base no contexto gerado pela pesquisa anterior, redija um artigo completo,
+    coeso e envolvente sobre o assunto. O artigo deve ter **no mínimo 300 palavras** —
+    esse requisito é obrigatório e deve ser respeitado rigorosamente.
+
+    Estruture o texto em seções:
+    1. Título
+    2. Introdução
+    3. Desenvolvimento (corpo com parágrafos claros e informativos)
+    4. Conclusão
+
+    Certifique-se de que o artigo tenha fluidez, clareza, mais de 300 palavras e consistência argumentativa.
+    O texto deve ser original, informativo e manter coerência com o contexto pesquisado.
+
+    Assunto Original: {assunto}
+
+  expected_output: >
+    O artigo final deve conter:
+    - Um título criativo e relevante
+    - Um corpo textual com **mais de 300 palavras**
+    - Três palavras-chave (keywords) diretamente relacionadas ao tema
+    - A resposta deve ser bem formatada em texto simples, clara e organizada.
+
+
+  agent: escritor

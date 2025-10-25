@@ -80,7 +80,7 @@ Abra o primeiro terminal na raiz do projeto (article_generator_crew/) e inicie o
 <pre><code class="language-bash">
 $ uvicorn app.main:app --reload
 </code></pre>
-O servidor estará ativo em http://127.0.0.1:8000.
+O servidor estará ativo em http://127.0.0.1:8000. (URL padrão)
 
 #### B. Iniciar a Interface Streamlit (Frontend)
 Abra o segundo terminal na raiz do projeto (article_generator_crew/) e inicie a interface:
