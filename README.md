@@ -16,21 +16,25 @@ Componente Tecnologia Finalidade
 | Linguagem      | Python                      | Linguagem principal do projeto.                                  |
 
 ## 🚀 Estrutura do ProjetoO projeto segue a estrutura de pacotes recomendada (app/ para serviços de API, src/ para a lógica principal do sistema de agentes):SMUGAU/
+```text
+article_generator_crew
+/
 ├── app/
-│   ├── main.py            # ➡️ Ponto de entrada da API (FastAPI)
-│   ├── models.py          # Modelos Pydantic (Input/Output)
-│   └── services/
-│       └── crew_runner.py # Serviço que inicia a CrewAI
+│ ├── main.py # ➡️ Ponto de entrada da API (FastAPI)
+│ ├── models.py # Modelos Pydantic (Input/Output)
+│ └── services/
+│ └── crew_runner.py # Serviço que inicia a CrewAI
 ├── src/
-│   ├── article_crew.py    # ➡️ Definição da Crew, Agentes e Tarefas (@CrewBase)
-│   ├── tools/
-│       └── wikipedia_tool.py # ➡️ Custom CrewAI Tool (BaseTool)
-│   └── config/
-│       ├── agents.yaml    # Configuração de Role/Goal dos Agentes
-│       └── tasks.yaml     # Configuração das Tarefas
-├── .env                   # Variáveis de Ambiente (API Keys)
-├── app.py                 # ➡️ Aplicação Streamlit (Frontend)
-└── requirements.txt       # Dependências
+│ ├── article_crew.py # ➡️ Definição da Crew, Agentes e Tarefas (@CrewBase)
+│ ├── tools/
+│ └── wikipedia_tool.py # ➡️ Custom CrewAI Tool (BaseTool)
+│ └── config/
+│ ├── agents.yaml # Configuração de Role/Goal dos Agentes
+│ └── tasks.yaml # Configuração das Tarefas
+├── .env # Variáveis de Ambiente (API Keys)
+├── app.py # ➡️ Aplicação Streamlit (Frontend)
+└── requirements.txt # Dependências
+```
 
 ## 📋 Como Configurar e ExecutarSiga os passos abaixo para colocar o sistema em funcionamento.
 
