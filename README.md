@@ -3,7 +3,6 @@ Este projeto implementa um sistema multiagente utilizando o framework CrewAI par
 A interface é fornecida através de um servidor FastAPI e uma aplicação cliente Streamlit.
 
 ## ⚙️ Tecnologias Utilizadas
-Componente Tecnologia Finalidade
 | **Componente** | **Tecnologia**              | **Finalidade**                                                   |
 |----------------|-----------------------------|------------------------------------------------------------------|
 | Orquestração   | CrewAI                      | Tool customizada para consultar a API da Wikipedia.              |
@@ -17,8 +16,7 @@ Componente Tecnologia Finalidade
 
 ## 🚀 Estrutura do ProjetoO projeto segue a estrutura de pacotes recomendada (app/ para serviços de API, src/ para a lógica principal do sistema de agentes):SMUGAU/
 ```text
-article_generator_crew
-/
+article_generator_crew/
 ├── app/
 │ ├── main.py # ➡️ Ponto de entrada da API (FastAPI)
 │ ├── models.py # Modelos Pydantic (Input/Output)
@@ -36,45 +34,57 @@ article_generator_crew
 └── requirements.txt # Dependências
 ```
 
-## 📋 Como Configurar e ExecutarSiga os passos abaixo para colocar o sistema em funcionamento.
+## 📋 Como Configurar e Executar
+Siga os passos abaixo para colocar o sistema em funcionamento.
 
-1. Pré-requisitos
+### 1. Pré-requisitos
 - Python 3.10+
-- O projeto deve estar publicado no GitHub com repositório público
-- 3.Chave de API do provedor LLM (Ex: OpenRouter API Key).
+- Chave de API do provedor LLM (Ex: OpenRouter).
 
-2. Configuração do Ambiente
+### 2. Configuração do Ambiente
 
-2.1. Clone o repositório:
->> git clone 
->> cd SMUGAU
+#### 2.1. Clone o repositório:
+<pre><code class="language-bash">
+$ git clone https://github.com/mulhollanddev/article_generator_crew.git
+$ cd article_generator_crew
+</code></pre>
 
-2.2. Crie e ative o ambiente virtual:
->> python -m venv .venv
->> source .venv/bin/activate  # No Windows use: .venv\Scripts\activate
+#### 2.2. Crie e ative o ambiente virtual:
+<pre><code class="language-bash">
+$ python -m venv .venv
+$ source .venv/bin/activate  # No Windows use: .venv\Scripts\activate
+</code></pre>
 
-2.3. Instale as dependências:
->> pip install -r requirements.txt
+#### 2.3. Instale as dependências:
+<pre><code class="language-bash">
+$ pip install -r requirements.txt
+</code></pre>
 
-3. Configuração de Chaves de API
-Crie um arquivo chamado .env na raiz do projeto (SMUGAU/.env) e insira suas chaves de API:
+### 3. Configuração de Chaves de API
+Crie um arquivo chamado .env na raiz do projeto (article_generator_crew/.env) e insira suas chaves de API:
 
->> # Exemplo para OpenRouter
->> OPENROUTER_API_KEY="sk-seu-token-aqui"
+<pre><code class="language-bash">
+$ # Exemplo para OpenRouter
+$ OPENROUTER_API_KEY="sk-seu-token-aqui"
+$ # Chave de contorno (necessária para algumas versões do CrewAI)
+$ OPENAI_API_KEY="sk-fakekeyforcrewai" 
+</code></pre>
 
->> # Chave de contorno (necessária para algumas versões do CrewAI)
->> OPENAI_API_KEY="sk-fakekeyforcrewai" 
 
-4. Execução do Sistema
+### 4. Execução do Sistema
 O sistema é dividido em duas partes que devem ser executadas em terminais separados: o Servidor API e a Interface Gráfica.
 
-A. Iniciar o Servidor FastAPI (Backend)Abra o primeiro terminal na raiz do projeto (SMUGAU/) e inicie o servidor:
->> uvicorn app.main:app --reload
+#### A. Iniciar o Servidor FastAPI (Backend)Abra o primeiro terminal na raiz do projeto (SMUGAU/) e inicie o servidor:
+<pre><code class="language-bash">
+$ uvicorn app.main:app --reload
+</code></pre>
 O servidor estará ativo em http://127.0.0.1:8000.
 
-B. Iniciar a Interface Streamlit (Frontend)
+#### B. Iniciar a Interface Streamlit (Frontend)
 Abra o segundo terminal na raiz do projeto (SMUGAU/) e inicie a interface:
 
->> streamlit run app.py
+<pre><code class="language-bash">
+$ streamlit run app.py
+</code></pre>
 
 O Streamlit abrirá automaticamente a interface no seu navegador, pronta para receber o tema do artigo.
