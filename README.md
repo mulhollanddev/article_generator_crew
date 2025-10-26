@@ -59,6 +59,7 @@ $ source .venv/bin/activate  # No Windows use: .venv\Scripts\activate
 #### 2.3. Instale as dependências:
 <pre><code class="language-bash">
 $ pip install -r requirements.txt
+$ pip install LiteLLM crewai fastapi uvicorn[standard]  
 </code></pre>
 
 ### 3. Configuração de Chaves de API
