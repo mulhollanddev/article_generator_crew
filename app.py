@@ -7,7 +7,7 @@ from app.models import ArtigoOutput
 
 # --- Configuração da Página ---
 st.set_page_config(
-    page_title="Gerador de Artigos CrewAI (SMUGAU)",
+    page_title="Gerador de Artigos",
     layout="wide"
 )
 
@@ -78,7 +78,9 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # 4. Campo de Entrada de Texto
-if prompt := st.chat_input("Envie seu tema..."):
+if prompt := st.chat_input(
+    f"Envie seu tema (máx. {MAX_ASSUNTO_LENGTH} caracteres)..."
+    ): # <-- Atualiza o placeholder
     
     # Adiciona a mensagem do usuário ao histórico
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -87,24 +89,33 @@ if prompt := st.chat_input("Envie seu tema..."):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    # Gera e exibe a resposta do assistente
-    with st.chat_message("assistant"):
-        with st.spinner("🤖 CrewAI trabalhando... Pesquisando, Redigindo e Formatando o Artigo..."):
-            
-            # CHAMA A FUNÇÃO CENTRAL DO PROJETO
-            article_output = get_article_from_api(prompt)
-            
-            if article_output:
-                response = format_article_output(article_output)
-                st.markdown(response)
+    if len(prompt) > MAX_ASSUNTO_LENGTH:
+        # Se o prompt for muito longo, exibe um aviso e NÃO chama a API
+        warning_message = f"⚠️ O tema digitado é muito longo ({len(prompt)} caracteres). O máximo permitido é {MAX_ASSUNTO_LENGTH}. Por favor, envie um tema mais curto."
+        with st.chat_message("assistant"):
+            st.warning(warning_message) # Usa st.warning para destacar
+        # Adiciona a mensagem de aviso ao histórico
+        st.session_state.messages.append({"role": "assistant", "content": warning_message})
+
+    else:
+        # Gera e exibe a resposta do assistente
+        with st.chat_message("assistant"):
+            with st.spinner("Pesquisando, Redigindo e Formatando o Artigo..."):
                 
-                # Adiciona a resposta do assistente ao histórico
-                st.session_state.messages.append({"role": "assistant", "content": response})
-            else:
-                # Se falhou, adiciona a mensagem de erro que já foi exibida
-                error_message = "Desculpe, não consegui gerar o artigo devido a um erro na API."
-                st.markdown(error_message)
-                st.session_state.messages.append({"role": "assistant", "content": error_message})
+                # CHAMA A FUNÇÃO CENTRAL DO PROJETO
+                article_output = get_article_from_api(prompt)
+                
+                if article_output:
+                    response = format_article_output(article_output)
+                    st.markdown(response)
+                    
+                    # Adiciona a resposta do assistente ao histórico
+                    st.session_state.messages.append({"role": "assistant", "content": response})
+                else:
+                    # Se falhou, adiciona a mensagem de erro que já foi exibida
+                    error_message = "Desculpe, não consegui gerar o artigo devido a um erro na API."
+                    st.markdown(error_message)
+                    st.session_state.messages.append({"role": "assistant", "content": error_message})
 
 
 # --- Barra Lateral (Sidebar) para Limpeza de conversa ---
