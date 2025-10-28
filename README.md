@@ -1,6 +1,8 @@
 # 📄 Sistema Multiagentes para Geração de Artigos
-Este projeto implementa um sistema multiagente utilizando o framework CrewAI para automatizar a criação de artigos para um website1. O sistema pesquisa informações contextuais na API da Wikipedia para obter contexto relevante 2e utiliza Large Language Models (LLMs) para redigir artigos estruturados e com no mínimo 300 palavras.
-A interface é fornecida através de um servidor FastAPI e uma aplicação cliente Streamlit.
+Este projeto implementa um sistema multiagente utilizando o framework CrewAI para automatizar a criação de artigos para um website
+1. O sistema pesquisa informações contextuais na API da Wikipedia para obter contexto relevante
+2. Utiliza Large Language Models (LLMs) para redigir artigos estruturados e com no mínimo 300 palavras.
+3. A interface é fornecida através de um servidor FastAPI e uma aplicação cliente Streamlit.
 
 ## ⚙️ Tecnologias Utilizadas
 | **Componente** | **Tecnologia**              | **Finalidade**                                                   |
@@ -40,7 +42,7 @@ Siga os passos abaixo para colocar o sistema em funcionamento.
 
 ### 1. Pré-requisitos
 - Python 3.10+
-- Chave de API do provedor LLM (Ex: OpenRouter).
+- Chave de API do provedor LLM.
 
 ### 2. Configuração do Ambiente
 
